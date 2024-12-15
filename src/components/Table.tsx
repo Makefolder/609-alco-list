@@ -13,8 +13,8 @@ const Table = (props: { list: Array<ListItem> }) => {
         </tr>
       </thead>
       <tbody>
-        {list.map((item) => (
-          <tr className={item.bought ? `line-through opacity-30` : ``}>
+        {list.map((item, i) => (
+          <tr key={i} className={item.bought ? `line-through opacity-30` : ``}>
             <td>{item.name}</td>
             <td>{item.amount}</td>
             <td>{item.price} €</td>
