@@ -5,8 +5,8 @@ const List = (props: { list: Array<ListItem> }) => {
   const { list } = props;
   return (
     <div className="w-full">
-      {list.map((item) => (
-        <div className="flex justify-between">
+      {list.map((item, i) => (
+        <div key={i} className="flex justify-between">
           <div>{`${item.name} x${item.amount}`}</div>
           <div className="flex">
             {`${item.price} €`}
