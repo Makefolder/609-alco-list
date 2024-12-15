@@ -5,6 +5,7 @@ import Snowflakes from "@/components/Snowflakes";
 
 export default function Home() {
   const list: ListItem[] = JSON.parse(process.env.LIST ?? `[]`);
+  const people = (process.env.PEOPLE as number | undefined) ?? 1;
 
   const remaining = list.filter((item) => !item.bought);
   const total = remaining.reduce(
@@ -27,8 +28,8 @@ export default function Home() {
         <Table list={list} />
         <div className="mt-8">
           <b className="text-2xl">Total: </b>{" "}
-          {total.toFixed(2) + ` € (${(total / 4).toFixed(2)} € = `}
-          <Code>total / 4</Code>
+          {total.toFixed(2) + ` € (${(total / people).toFixed(2)} € = `}
+          <Code>{`total / ${people.toString()}`}</Code>
           {" )"}
         </div>
       </div>
