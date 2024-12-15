@@ -1,4 +1,5 @@
 import Code from "@/components/Code";
+import List from "@/components/List";
 import Table from "@/components/Table";
 import { ListItem } from "@/types/types";
 import Snowflakes from "@/components/Snowflakes";
@@ -24,8 +25,13 @@ export default function Home() {
       <h1 className="text-center my-8">
         Room <Code>609</Code> Alcohol List
       </h1>
-      <div className="max-w-[70%] mx-auto">
-        <Table list={list} />
+      <div className="lg:max-w-[70%] mx-auto">
+        <div className="hidden lg:block">
+          <Table list={list} />
+        </div>
+        <div className="block lg:hidden">
+          <List list={list} />
+        </div>
         <div className="mt-8">
           <b className="text-2xl">Total: </b>{" "}
           {total.toFixed(2) + ` € (${(total / people).toFixed(2)} € = `}

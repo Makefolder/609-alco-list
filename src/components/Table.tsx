@@ -1,4 +1,5 @@
 import { ListItem } from "@/types/types";
+import Link from "@/components/Link";
 
 const Table = (props: { list: Array<ListItem> }) => {
   const { list } = props;
@@ -19,19 +20,7 @@ const Table = (props: { list: Array<ListItem> }) => {
             <td>{item.amount}</td>
             <td>{item.price} €</td>
             <td>
-              {item.bought || item.url === "" ? (
-                <p className={item.url === "" ? `text-[#ffffff]/30` : ``}>
-                  link
-                </p>
-              ) : (
-                <a
-                  href={item.url}
-                  className={`${item.bought ? "" : "text-blue-500 underline"}`}
-                  target="_blank"
-                >
-                  link
-                </a>
-              )}
+              <Link url={item.url} bought={item.bought} />
             </td>
           </tr>
         ))}
